@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- CSS -->
+<!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">-->
+<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+<link th:href="@{/css/bootstrap-theme.css}" rel="stylesheet" />
+
+
+<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
+
+
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+<link th:href="@{/css/form-elements.css}" rel="stylesheet" />
+
+<link th:href="@{/css/login.css}" rel="stylesheet" />
+
+<!-- Favicon and touch icons -->
+<link rel="shortcut icon" th:href="@{/ico/favicon.png}">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	th:href="@{/ico/apple-touch-icon-144-precomposed.png}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	th:href="@{/ico/apple-touch-icon-114-precomposed.png}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	th:href="@{/ico/apple-touch-icon-72-precomposed.png}">
+<link rel="apple-touch-icon-precomposed"
+	th:href="@{/ico/apple-touch-icon-57-precomposed.png}">
+
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+
+
+<script th:src="@{/js/jquery.backstretch.min.js}"></script>
+<script th:src="@{/js/placeholder.js}"></script>
+<script th:src="@{/js/scripts.js}"></script>
+
+<script th:src="@{/js/bootstrap.js}"></script>
+<script th:src="@{/js/angular.js}"></script>
+<script th:src="@{/js/xml2json.js}"></script>
+
+<script th:src="@{/js/itapp.qrcode.js}"></script>
+<script th:src="@{/js/jquery.qrcode.min.js}"></script>
+
+
+
+
+
+
+<!-- 消息设置插件;-->
+<script type="text/javascript"
+	src="http://ifightcrime.github.io/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
+
+<title>程里人服务平台</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row"></div>
+	</div>
+	<div class="top-content"
+		th:attr="style='background:url('+@{/images/1.jpg}+');'">
+
+		<div class="inner-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2 text">
+						<h1>
+							<strong>学习教育平台</strong> 登录
+						</h1>
+
+						<div class="description">
+							<p>用最执着的心做最念念不忘的事</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="row" style="display: block" id="password_login">
+					<div class="col-sm-6 col-sm-offset-3 form-box">
+						<div class="form-top">
+							<div class="form-top-left">
+								<p style="font-size: 18px; color: #555;">请填写域账号与密码</p>
+								<p style="color: red;">
+									<span id="errorInfo"></span>
+								</p>
+							</div>
+							<div class="form-top-right">
+								<!--<i class="fa fa-key"></i>-->
+
+							</div>
+
+
+						</div>
+						<div class="form-bottom">
+							<!--th:action="@{/login/success}" -->
+                            <!-- onSubmit="return  check();"-->
+							<form role="form" class="login-form" action="#"
+								th:action="@{/login/success}" role="form" th:object="${user}"
+								method="POST" >
+								<div class="form-group">
+									<!--<label class="sr-only" for="form-username">域账号</label>-->
+									<input type="text" name="form-username" placeholder="域账号..."
+										class="form-username form-control" id="form-username"
+										th:field="*{name}">
+								</div>
+								<div class="form-group">
+									<!--<label class="sr-only" for="form-password">密码</label>-->
+									<input type="password" name="form-password" placeholder="密码..."
+										class="form-password form-control" id="form-password"
+										th:field="*{pwd}">
+								</div>
+
+								<button type="submit" class="btn" id="submit">登录</button>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+
+<script>
+
+	function check() {
+		// 获取账号的信息和密码的消息
+		var name = $("#form-username").val();
+		var pwd = $("#form-password").val();
+//		var region = $("#form-region").val();
+		if (name == "" || pwd == "") {
+			return false;
+		}
+		// 用ajax开始提交数据到接口验证
+		var data = {
+			"name" : name,
+			"pwd" : pwd,
+//			"region" : region
+		};
+
+		var info = "error";
+		var url = "auth"
+
+		$.ajax({
+			async : false,
+			type : 'POST',
+			dataType : "json",
+			contentType : 'application/json',
+			data : JSON.stringify(data),
+			url : url,
+			success : function(data) {
+				if (data.hasOwnProperty("message") && data["message"] != "") {
+					//  解析这个success的数据开始来实现;
+
+						info = "success";
+					}
+			},
+			error : function(data) {
+
+			},
+
+		});
+		if (info == "success") {
+			return true;
+		}
+
+		document.getElementById("errorInfo").innerText = "登陆失败，请重新填写";
+		return false;
+	}
+</script>
+</html>

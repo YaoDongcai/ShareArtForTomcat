@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<!--[if IE 7 ]>    <html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en-gb" class="isie ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en-gb" class="no-js" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--[if lt IE 9]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <title>同学艺术平台</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if lt IE 9]>
+    <!--<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+    <!--[if lte IE 8]>
+    <!--<script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>-->
+    <!--<![endif]&ndash;&gt;-->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/isotope.css}" media="screen" />
+    <link rel="stylesheet" th:href="@{/js/fancybox/jquery.fancybox.css}" type="text/css" media="screen" />
+    <link th:href="@{/css/animate.css}" rel="stylesheet" media="screen">
+    <link th:href="@{/flexslider/flexslider.css}" rel="stylesheet" />
+    <link th:href="@{/js/owl-carousel/owl.carousel.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <!-- Font Awesome -->
+    <link th:href="@{/font/css/font-awesome.min.css}" rel="stylesheet">
+</head>
+
+
+<body>
+<header class="header" style=" background-color: #22303e;">
+    <div class="container">
+<nav class="navbar navbar-inverse" role="navigation" >
+<div class="navbar-header">
+    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+    <a href="#" class="navbar-brand scroll-top logo  animated bounceInLeft"><img th:src="@{/images/index/logo.png}" style="margin-top:-15px;"/><b>|<i>同学</i></b> </a>
+</div>
+<!--/.navbar-header-->
+<div id="main-nav" class="collapse navbar-collapse" >
+    <ul class="nav navbar-nav" id="mainNav">
+        <li class="active" id="firstLink"><a href="#home" class="scroll-link">首页</a></li>
+        <li><a href="#services" class="scroll-link">艺人推荐</a></li>
+        <li><a href="#work" class="scroll-link">学员推荐</a></li>
+        <li><a href="#plans" class="scroll-link">明星课程</a></li>
+        <li><a href="#team" class="scroll-link">同学风采</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">合作商<span class="caret"></span></a>
+            <ul class="dropdown-menu " role="menu" aria-labelledby="dropdownMenu1" style="background-color: #22303e;">
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#" style="color: #FFFFFF">合作商一</a>
+                </li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#" style="color: #FFFFFF">合作商二</a>
+                </li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#" style="color: #FFFFFF">合作商三</a>
+                </li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" href="#" style="color: #FFFFFF">合作商四</a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a thref="#signin" class="scroll-link" data-toggle="modal" data-target="#myModal">登陆</a>
+        </li>
+
+        <li><a href="#login" class="scroll-link">注册</a></li>
+    </ul>
+</div>
+
+<!--/.navbar-collapse-->
+</nav>
+<!--/.navbar-->
+</div>
+<!--/.container-->
+</header>
+
+
+<section id="services" class="page-section colord" >
+    <div class="container">
+        <div class="row">
+            <div class="text" style=" text-align:center;"><font size="7" color="#000000">艺人推荐</font></div>
+            <div class="text" style=" text-align:center;"><font size="3" color="#000000">学的不只是音乐 | 更是梦想  | 与不平凡为伍<br><br><br></font></div>
+            <!-- item -->
+            <div class="col-md-3 text-center" th:each="teacher :${arrayList}">
+                <a href="#" >
+                    <div class="b1"> <i class="circle">
+                        <img  class="img-circle" th:src="@{'/images/teacher/'}+${teacher.img_url}"  alt="" />
+                    </i>
+                        <h3 th:text="${teacher.nickname}"></h3>
+                        <p th:text="${teacher.music_instruments}"></p>
+                        <p th:text="${teacher.teacher_ideas}"></p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <!--/.container-->
+</section>
+
+<section id="work" class="page-section page" style="background-color: #22303e;">
+    <div class="container text-center">
+        <div class="heading">
+            <h2>学员推荐</h2>
+            <p style="font-size: 25px;">艺术很美，我想未来的生活一样美</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="page-2-content" style="background-color: #43cad2; height: 80px;">
+                            <p  class="text-left text-title" >音乐类 <span class="glyphicon glyphicon-forward pull-right"></span>
+                            </p>
+                        </div>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div  class="page-2-content" style="background-color: #93d146; height: 80px;">
+                            <p  class="text-left text-title" >美术类 <span class="glyphicon glyphicon-forward pull-right"></span>
+                            </p>
+                        </div>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div  class="page-2-content" style="background-color: #f5d923; height: 80px;">
+                            <p   class="text-left text-title" >体健类 <span class="glyphicon glyphicon-forward pull-right"></span>
+                            </p>
+                        </div>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="page-2-content" style="background-color: #f27e7e; height: 80px;">
+                            <p   class="text-left text-title" >大学专业课辅导类 <span class="pull-right"> >> </span>
+                            </p>
+                        </div>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                        <a class="row"  href="#">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="row">-->
+            <!--<div class="col-md-12">-->
+                <!--<div id="portfolio">-->
+
+                    <!--<ul class="items list-unstyled clearfix animated fadeInRight showing" data-animation="fadeInRight" style="position: relative; height: 438px;">-->
+                        <!--<li class="item branding" style="position: absolute; left: 0px; top: 0px;"> <a href="images/work/00.jpg" class="fancybox"> <img src="__PUBLIC__/images/work/00.jpg" alt="">-->
+                            <!--<div class="overlay"> <span>ToShare</span> </div>-->
+                        <!--</a> </li>-->
+                        <!--<li class="item photography" style="position: absolute; left: 292px; top: 0px;"> <a href="images/work/00.jpg" class="fancybox"> <img src="__PUBLIC__/images/work/00.jpg" alt="">-->
+                            <!--<div class="overlay"> <span>ToShare</span> </div>-->
+                        <!--</a> </li>-->
+                        <!--<li class="item branding" style="position: absolute; left: 585px; top: 0px;"> <a href="images/work/00.jpg" class="fancybox"> <img src="__PUBLIC__/images/work/00.jpg" alt="">-->
+                            <!--<div class="overlay"> <span>ToShare</span> </div>-->
+                        <!--</a> </li>-->
+                        <!--<li class="item photography" style="position: absolute; left: 877px; top: 0px;"> <a href="images/work/00.jpg" class="fancybox"> <img src="__PUBLIC__/images/work/00.jpg" alt="">-->
+                            <!--<div class="overlay"> <span>ToShare</span> </div>-->
+                        <!--</a> </li>-->
+                        <!--<li class="item photography" style="position: absolute; left: 0px; top: 219px;"> <a href="images/work/00.jpg" class="fancybox"> <img src="__PUBLIC__/images/work/00.jpg" alt="">-->
+                            <!--<div class="overlay"> <span>ToShare</span> </div>-->
+                        <!--</a> </li>-->
+                        <!--<li class="item web" style="position: absolute; left: 292px; top: 219px;"> <a href="images/work/00.jpg" class="fancybox"> <img src="__PUBLIC__/images/work/00.jpg" alt="">-->
+                            <!--<div class="overlay"> <span>ToShare</span> </div>-->
+                        <!--</a> </li>-->
+                        <!--<li class="item photography" style="position: absolute; left: 585px; top: 219px;"> <a href="images/work/00.jpg" class="fancybox"> <img src="__PUBLIC__/images/work/00.jpg" alt="">-->
+                            <!--<div class="overlay"> <span>ToShare</span> </div>-->
+                        <!--</a> </li>-->
+                        <!--<li class="item web" style="position: absolute; left: 877px; top: 219px;"> <a href="images/work/00.jpg" class="fancybox"> <img src="__PUBLIC__/images/work/00.jpg" alt="">-->
+                            <!--<div class="overlay"> <span>ToShare</span> </div>-->
+                        <!--</a> </li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</section>
+
+<section id="plans" class="page-section">
+    <div class="container">
+        <div class="heading text-center">
+            <!-- Heading -->
+            <h2 style=" color: #406080;">明星课程推荐 >></h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4" style="vertical-align: middle">
+                        <p class="start-course-title text-center">钢琴课</p>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <p class="start-course-price text-center">9月1日-12月31日，价格9999元</p>
+                    </div>
+                    <div class="col-sm-4 col-md-4 text-center">
+                        <a href="#" class="btn btn-default start-course-submit" style="border-radius: 15px;">在线报名</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <hr style="margin-top:-2px;height:1px;border-top: solid 1px #979797;" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4" style="vertical-align: middle">
+                        <p class="start-course-title text-center">钢琴课</p>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <p class="start-course-price text-center">9月1日-12月31日，价格9999元</p>
+                    </div>
+                    <div class="col-sm-4 col-md-4 text-center">
+                        <a href="#" class="btn btn-default start-course-submit" style="border-radius: 15px;">在线报名</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <hr style="margin-top:-2px;height:1px;border-top: solid 1px #979797;" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4" style="vertical-align: middle">
+                        <p class="start-course-title text-center">钢琴课</p>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <p class="start-course-price text-center">9月1日-12月31日，价格9999元</p>
+                    </div>
+                    <div class="col-sm-4 col-md-4 text-center">
+                        <a href="#" class="btn btn-default start-course-submit" style="border-radius: 15px;">在线报名</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <hr style="margin-top:-2px;height:1px;border-top: solid 1px #979797;" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4" style="vertical-align: middle">
+                        <p class="start-course-title text-center">钢琴课</p>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                        <p class="start-course-price text-center">9月1日-12月31日，价格9999元</p>
+                    </div>
+                    <div class="col-sm-4 col-md-4 text-center">
+                        <a href="#" class="btn btn-default start-course-submit" style="border-radius: 15px;">在线报名</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <hr style="margin-top:-2px;height:1px;border-top: solid 1px #979797;" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="team" class="page-section">
+    <div class="container">
+        <div class="heading text-center">
+            <h2>同学推荐</h2>
+            <p>我还是很喜欢你 | 像风走了八千里 | 不问归期</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="title-content"  style="background-color: #43cad2; height: 80px;">
+                            <p style="font-family: PingFangSC;font-size: 36px; color: #FFFFFF;height: 50px;padding-top: 15px;;">音乐类 <span class="glyphicon glyphicon-forward pull-right"></span>
+                            </p>
+                        </div>
+                        <div class="row" style="color:#FFFFFF">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </div>
+                        <div class="row" style="color:#FFFFFF">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </div>
+                        <div class="row" style="color:#FFFFFF">
+                            <div class="col-md-3"><p class="common-size">钢琴</p></div>
+                            <div class="col-md-3"><p class="common-size">137****9999</p></div>
+                            <div class="col-md-3"><p class="common-size">周二上午9：00</p></div>
+                            <div class="col-md-3"><p class="common-size">浦东</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="title-content">
+                            <p style="font-size: 25px;">美术类</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="title-content">
+                            <p style="font-size: 25px;">体健类</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="title-content">
+                            <p style="font-size: 25px;">大学专业课辅导</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>地址：上海市静安区广中路788号行健楼</li>
+                        <li>电话: 17302170797、18801912262</li>
+                        <li>邮箱: <a href="mailto:info@example.com" title="Email Us">changingart@163.com</a></li>
+                        <li>微信: <a href="skype:my.test?call" title="Skype us">沉静艺术中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="col">
+                    <h4>邮箱列表</h4>
+                    <p>输入您的邮箱快速登录</p>
+                    <form class="form-inline">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Your email address...">
+                            <span class="input-group-btn">
+                                <button class="btn" type="button">Go!</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="col col-social-icons">
+                    <h4>关注我们</h4>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    <a href="#"><i class="fa fa-flickr"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-skype"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="col">
+                    <h4>最新消息</h4>
+                    <p>
+                        同学平台获得教育部及上海市科委好评
+                        <br><br>
+                        <a href="#" class="btn">了解更多</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--/.page-section-->
+<section class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center">Copyright &copy; 2016-2026.ChangingArt TEC. All rights reserved.</a></div>
+        </div>
+        <!-- / .row -->
+    </div>
+</section>
+<a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
+<!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]-->
+<script th:src="@{/js/modernizr-latest.js}"></script>
+<script th:src="@{/js/jquery-1.8.2.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/jquery.isotope.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/fancybox/jquery.fancybox.pack.js}" type="text/javascript"></script>
+<script th:src="@{/js/jquery.nav.js}" type="text/javascript"></script>
+<script th:src="@{/js/jquery.fittext.js}"></script>
+<script th:src="@{/js/waypoints.js}"></script>
+<script th:src="@{/flexslider/jquery.flexslider.js}"></script>
+<script th:src="@{/js/custom.js}" type="text/javascript"></script>
+<script th:src="@{/js/owl-carousel/owl.carousel.js}"></script>
+<!--<script th:src="https://cdn1.lncld.net/static/js/av-min-1.2.1.js"></script>-->
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Toshare登陆</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" >
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="输入号码"/>
+                        <span class="input-group-addon" style="padding: 0px 0px;"><button class="btn btn-success" type="button">快速注册</button></span>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="输入密码"/>
+                        <span class="input-group-addon"style="padding: 0px 0px;"><button class="btn btn-success " type="button">忘记密码</button></span>
+                    </div>
+                    <!--<div class="form-group">-->
+                    <!--<span class="input-group-btn">-->
+                    <!--<button class="btn btn-default pull-left" type="button">快速注册</button>-->
+                    <!--<button class="btn btn-default pull-right" type="button">忘记密码</button>-->
+                    <!--</span>-->
+                    <!--</div>-->
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">登陆</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+</body>
+</html>

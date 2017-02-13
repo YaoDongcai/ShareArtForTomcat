@@ -1,0 +1,222 @@
+<include file="Public/person-header.html"/>
+	<style>
+
+		div.col-md-2>img{
+			margin-top:-50px;
+		}
+		a{
+			color:black;
+			text-decoration:none
+		}
+		.list-left>li:hover{
+			background:#D9F5F7;
+		}
+		.list-left>li{
+			background:#F5F9FD;
+			padding:7px;
+			text-align:center;
+			border:1px solid white;
+		}
+		.content-right{
+			background:#F3F9FD;
+		}
+		img.pull-left{
+			display:block;
+			margin:14px;
+			margin-left:54px;
+			width:120px;
+			height:120px;
+		}
+		.content-right>div.clearfix p{
+			margin:22px 0 10px 10px;
+			font-weight:bold;
+			font-size:20px;
+		}
+		.content-right>div.panel{
+			background:#F3F9FD;
+			margin-left:55px;
+			margin-right:20px;
+			box-shadow:none;
+		}
+		.content-right>div.panel>div.panel-heading{
+			border-bottom:2px solid #BEDBDD;
+			color:#5DC5CE;
+			font-weight:bold;
+			padding:0;
+			margin:0;
+			position:relative;
+		}
+		div.panel-heading>span{
+			display:inline-block;
+			border:3px solid #5DC5CE;
+			width:3px;
+			height:3px;
+			border-radius:50%;
+			margin-right:3px;
+			position:absolute;
+			top:10px;
+			left:2px;
+		}
+		div.panel-heading>p{
+			margin:0;
+			padding:3px 0;
+			margin-left:10px;
+		}
+		.content-right>div.panel>div.panel-body>p{
+			 margin:0 30px;
+		}
+		.panel-body{
+			border:1px solid #F3F9FD;
+		}
+		.select{
+			margin-left:10px;
+			border:1px solid #BEDBDD;
+			height:20px;
+			width:170px;
+			appearance:none;
+			-moz-appearance:none;
+			-webkit-appearance:none;
+			background:url("img/select_icon.png") no-repeat scroll right center transparent;
+		}
+		.check{			
+			display:none;			
+		}
+		.check-box{
+			margin-left:40px;
+			width:250px;
+			padding:3px;
+			margin-top:-10px;
+			margin-bottom:10px;
+		}
+		.check + label{
+			background-color: #F3F9FD;
+			border: 1px solid #BEDBDD;
+			border-radius:5px;
+			display:inline-block;
+			position:absolute;
+			width:20px;
+			height:20px;
+		}
+		.check:checked + label:after{
+			content:'\2713';
+			position:absolute;
+			top:-8px;
+			left:2px;
+			color:#BEDBDD;
+			text-align:center;
+			font-size:1.5em;
+			padding:1px 0 0 0;
+			vertical-align:text-top;
+		}
+		.btn-save{
+			background:#43CBD4;
+			width:120px;
+			height:30px;
+			color:white;
+			text-align:center;			
+			border:none;
+			margin:0 auto;
+			display:block;
+			margin-bottom:50px;
+			padding:5px;
+		}
+		textarea{
+			box-shadow:none;
+		}
+	</style>
+	<div class="container">
+		<div class="row" style="padding-top: 180px;padding-bottom: 50px;">
+            <div class="col-md-2 col-sm-6 col-xs-12">
+			
+                 <ul class="list-unstyled list-left">
+                     <li><a href="#">消息列表</a></li>
+                     <li><a href="#">我的关注</a></li>
+                     <li><a href="#">我要发布</a></li>
+                     <li><a href="#">发布历史</a></li>
+                     <li ><a href="#" >个人简历</a></li>
+                     <li><a href="#">账号设置</a></li>
+                </ul>
+			</div>
+			<div class="col-md-10 col-sm-6 col-xs-12 content-right">
+				<div class="clearfix">
+					<img src="__PUBLIC__/images/user/user.png" class="pull-left">
+					<div class="pull-left">
+						<p>李密宝</p>
+						<textarea class="form-control "placeholder="请简述自己" style="background:#F3F9FD;width:530px;height:80px;border:#E6EFF3 solid;border-width:1px;box-shadow:none;"></textarea>
+					</div>
+				</div>
+				<div class="panel">
+					<div class="panel-heading"><p>专业</p></div>
+					<div class="panel-body">
+						<p class="pull-left">专业:
+							<select class="select">
+								<option value="-1"></option>
+								<option value="0"></option>
+							</select>
+						</p>
+						<p class="pull-left">学院:
+							<select class="select">
+								<option value="-1"></option>
+								<option value="0"></option>
+							</select>
+						</p>
+					</div>
+				</div>
+				<div class="panel">
+					<div class="panel-heading"><p>证书</p></div>
+					<div class="panel-body">
+						<textarea class="form-control " style="background:#F3F9FD;width:684px;height:50px;border:#E6EFF3 solid;border-width:1px;box-shadow:none;"></textarea>
+					</div>
+				</div>
+				<div class="panel">
+					<div class="panel-heading"><p>获奖记录</p></div>
+					<div class="panel-body">
+						<textarea class="form-control " style="background:#F3F9FD;width:684px;height:50px;border:#E6EFF3 solid;border-width:1px;box-shadow:none;"></textarea>
+					</div>
+				</div>	
+				<div class="panel">
+					<div class="panel-heading"><p>授课方式</p></div>
+					<div class="panel-body clearfix">				
+						<div class='pull-left check-box'>
+							<input type="checkbox" id="teacherClass" class="check">教师上门一对一
+							<label for="teacherClass" style="left:100px"></label>
+						</div>
+						<div class='pull-left check-box'>
+							<input type="checkbox" id="bigClass" class="check">大班课程
+							<label for="bigClass" style="left:390px"></label>
+						</div><br>
+						<div class='pull-left check-box'>
+							<input type="checkbox" id="stuClass" class="check">学生上门一对一
+							<label for="stuClass" style="left:100px"></label>
+						</div>
+						<div class='pull-left check-box'>
+							<input type="checkbox" id="starClass" class="check">明星课程
+							<label for="starClass" style="left:390px"></label>
+						</div>
+						
+						<textarea class="form-control " placeholder="请写出您的特殊需求" style="background:#F3F9FD;width:684px;height:50px;border:#E6EFF3 solid;border-width:1px;box-shadow:none;"></textarea>
+					</div>
+				</div>	
+				<div class="panel">
+					<div class="panel-heading"><p>接受授课地点</p></div>
+					<div class="panel-body">
+						<p class="pull-left">专业:
+							<select class="select">
+								<option value="-1"></option>
+								<option value="0"></option>
+							</select>
+						</p>
+						<p class="pull-left">学院:
+							<select class="select">
+								<option value="-1"></option>
+								<option value="0"></option>
+							</select>
+						</p>
+					</div>
+				</div>
+					<button class="btn-save">保存</button>
+								
+			</div>
+        </div>           
+    </div>
+<include file="Public/bottom.html" />

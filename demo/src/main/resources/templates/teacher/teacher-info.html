@@ -1,0 +1,174 @@
+<include file="Public/person-header.html"/>
+<title>教员库中心</title>
+<!--教员库中心-->
+<div class="container">
+    <div class="row" style="padding-top: 100px;padding-bottom: 50px;">
+        <div class="col-md-offset-4 clo-md-4">
+            <div class="img-thumbnail">
+                <img   src="__PUBLIC__/images/teacher/{$teacher.img_url}"/>
+            </div>
+
+            <p class="teacher"><span class="teacher-icon glyphicon glyphicon-user" aria-hidden="true"></span>
+            姓：{$teacher.nickname}</p>
+
+            <p class="teacher">  <span class="teacher-icon glyphicon glyphicon-tasks" aria-hidden="true"></span> 才艺：{$teacher.music_instruments}</p>
+            <p class="teacher">  <span class="teacher-icon glyphicon glyphicon-th" aria-hidden="true"></span> 教龄：{$teacher.teacher_age}</p>
+            <p class="teacher">  <span class="teacher-icon glyphicon glyphicon-th" aria-hidden="true"></span>学位：{$teacher.dipnoma}</p>
+            <p class="teacher">  <span class="teacher-icon glyphicon glyphicon-th" aria-hidden="true"></span>授课区域：{$teacher.teacher_area}</p>
+            <p class="teacher"> <span class="teacher-icon glyphicon glyphicon-bookmark" aria-hidden="true"></span>教学理念：{$teacher.teacher_ideas}</p>
+
+            <p ><span class="glyphicon glyphicon-qrcode"></span>分享
+            <div class="img-thumbnail text-center">
+                <img  src="{$teacher.img_data}"/>
+            </div>
+            </p>
+            <p class="teacher ">
+                <span class="teacher-icon glyphicon glyphicon-eye-open">此页浏览量：<span style="font-size:23px;">{$teacher.page_count}</span></span>
+                <button class="btn-success has-success" data-toggle="modal" data-target="#teacherModal">报名</button></p>
+            <div class="modal fade" id="teacherModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">报课提交申请表</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="panel panel-info">
+                                <div class="panel-body">
+                                    <form class="demands" action="{:U('upload')}" method="POST" role="form" enctype="multipart/form-data" onsubmit="return check(this)">
+                                       <div class="row" style="display: none">
+                                           <input name="personID" id="objectid" type="tel" class="form-control input-lg"  value="{$teacher.id}"/>
+                                       </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group ">
+                                                    <label class="control-label">手机号码</label>
+                                                    <input onblur="userphone_detect(this)"
+                                                           name="phone" id="user_phone" type="tel" class="form-control input-lg"  aria-describedby="sizing-addon1" aria-describedby="inputError2Status">
+
+                                                    <span class="" aria-hidden="true"></span>
+                                                    <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                                    </input>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+
+                                                <div class="form-group">
+                                                    <label class="control-label">电子邮箱</label>
+                                                    <input onblur="useremail_detect(this)"
+                                                           name="email" id="user_email" type="email" class="form-control input-lg"  aria-describedby="sizing-addon1" aria-describedby="inputError2Status">
+
+
+                                                    <span class="" aria-hidden="true"></span>
+                                                    <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                                    </input>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="control-label">您的称呼</label>
+                                                <p class="help-block">
+                                                    我们希望可以与您沟通的时候方便称呼您 :)
+                                                </p>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="nickname" id="optionsRadios1" value="man" checked>
+                                                        先生
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="nickname" id="optionsRadios2" value="women">
+                                                        女士
+                                                    </label>
+                                                </div>
+                                            </div >
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="control-label">报课名称</label>
+                                                <input name="course" type="text" class="form-control input-lg" >
+
+                                                </input>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label">其他的要求描述</label>
+                                            <p class="help-block">
+                                                简单的描述一下您的要求，我们更方便的安排您的课程 :)
+                                            </p>
+                                            <textarea name="description" type="text" class="form-control" rows="12"></textarea>
+                                        </div >
+                                        <div class="text-right">
+                                            <button type="submit" id="subs" class="btn btn-success">申请</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+            </p>
+        </div>
+        <!--模态框-->
+<script>
+    /**
+     * Created by yaodongcai on 2016/9/15.
+     */
+    function userphone_detect(e){
+        if ($(e).val() == "") {
+            $(e).parent().attr("class", "input-group input-group-lg has-error has-feedback");
+            $(e).next("span").attr("class", "glyphicon glyphicon-remove form-control-feedback");
+            $(e).attr("placeholder", "手机号不能为空");
+            return false;
+        }else if(!$(e).val().match(/^1[3|5|8][0-9]\d{4,8}$/)){
+
+            $(e).parent().attr("class", "input-group input-group-lg has-error has-feedback");
+            $(e).next("span").attr("class", "glyphicon glyphicon-remove form-control-feedback");
+            $(e).val('');
+            $(e).attr("placeholder", "手机的格式不对");
+            return false;
+        }else{
+            $(e).parent().attr("class", "input-group input-group-lg has-success has-feedback");
+            $(e).next("span").attr("class", "glyphicon glyphicon-ok form-control-feedback");
+            return true;
+        }
+    }
+    function useremail_detect(e){
+        if ($(e).val() == "") {
+            $(e).parent().attr("class", "input-group input-group-lg has-error has-feedback");
+            $(e).next("span").attr("class", "glyphicon glyphicon-remove form-control-feedback");
+            $(e).attr("placeholder", "邮箱不能为空");
+            return false;
+        }else if(!$(e).val().match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/)){
+
+            $(e).parent().attr("class", "input-group input-group-lg has-error has-feedback");
+            $(e).next("span").attr("class", "glyphicon glyphicon-remove form-control-feedback");
+            $(e).val('');
+            $(e).attr("placeholder", "邮箱的格式不对");
+            return false;
+        }else{
+            $(e).parent().attr("class", "input-group input-group-lg has-success has-feedback");
+            $(e).next("span").attr("class", "glyphicon glyphicon-ok form-control-feedback");
+            return true;
+        }
+    }
+    function check(form) {
+        if(form.phone.value==''){
+            form.user_phone.focus();
+            return false;
+        }
+        if(form.user_email.value=='') {
+            form.email.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+    </div>
+</div>
+<include file="Public/bottom.html" />
