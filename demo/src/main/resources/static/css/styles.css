@@ -31,7 +31,7 @@ p {
 	margin: 0 0 1em !important;
 }
 h1, h2, h3, h4, h5, h6 {
-	font-family:36px 'Open Sans', sans-serif;
+	font-family:'Open Sans', sans-serif;
 }
 .fitImage {
 	max-width: 100%;
@@ -61,7 +61,6 @@ h6{
 	line-height:30px;
 }
 .listArrow li{
-background: url('../images/links-arrow.png') 0px 12px no-repeat;
 padding-left:15px;
 }
 .progress {
@@ -370,7 +369,7 @@ margin-top: 101px;
 	line-height: 90px !important;
 }
 #section-strapline {
-	background: #f00bfff;
+	background: #fff;
 	line-height: 42px;
 	clear: both;
 }
@@ -642,7 +641,7 @@ img, video, iframe, embed, object {
 	float: left;
 }
 #aboutUs h3 {
-	font: 18px/34px;
+	font-size:18px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	color: #222;
@@ -1275,7 +1274,7 @@ font-size: 21px !important;
 	font-size: 11px;
 }
 .navbar-inverse .navbar-nav > li > a{
-padding: 6pxpx !important;
+padding: 6px !important;
 }
 .header .navbar-brand {
 float: left;
@@ -1334,8 +1333,6 @@ overflow: hidden;
 nav#filter li {
 	display: inline-block;
 	margin: 0 0 23px 5px;
-}
-;
 }
 #owl-demo .item {
 	background: #3fbf79;
@@ -1445,7 +1442,7 @@ nav#filter li {
 }
 .teacher{
     padding-top:18px;
-    font-size：35px;
+    font-size :35px ;
 }
 .teacher-icon{
     font-size:25px;
@@ -1466,7 +1463,7 @@ nav#filter li {
 
 /*明星课程样式*/
 #plans{
-    background-image:url("/Public/images/index/bg-page3.png");
+    background-image:url("../images/index/bg-page3.png");
     background-color:#000;
     filter:alpha(opacity=93);
     -moz-opacity:0.93;
@@ -1486,7 +1483,7 @@ nav#filter li {
     font-family: Microsoft YaHei;
     color: #4a4a4a;
 }
-.row .start-course-submit{
+.row .start-course-submit {
     background-color: #406080;
     border: solid 3px #406080;
     font-size: 25px;

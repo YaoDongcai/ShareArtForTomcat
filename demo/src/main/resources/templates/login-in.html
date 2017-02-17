@@ -5,10 +5,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- CSS -->
-<!--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">-->
-<link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-<link th:href="@{/css/bootstrap-theme.css}" rel="stylesheet" />
 
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
 
 <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" />
 
@@ -18,20 +16,8 @@
 
 <link th:href="@{/css/login.css}" rel="stylesheet" />
 
-<!-- Favicon and touch icons -->
-<link rel="shortcut icon" th:href="@{/ico/favicon.png}">
-<link rel="apple-touch-icon-precomposed" sizes="144x144"
-	th:href="@{/ico/apple-touch-icon-144-precomposed.png}">
-<link rel="apple-touch-icon-precomposed" sizes="114x114"
-	th:href="@{/ico/apple-touch-icon-114-precomposed.png}">
-<link rel="apple-touch-icon-precomposed" sizes="72x72"
-	th:href="@{/ico/apple-touch-icon-72-precomposed.png}">
-<link rel="apple-touch-icon-precomposed"
-	th:href="@{/ico/apple-touch-icon-57-precomposed.png}">
-
-
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script th:src="@{/js/jquery-3.1.1.min.js}"></script>
+<script th:src="@{/js/jquery-1.10.2.min.js}"></script>
 
 
 <script th:src="@{/js/jquery.backstretch.min.js}"></script>
@@ -41,20 +27,9 @@
 <script th:src="@{/js/bootstrap.js}"></script>
 <script th:src="@{/js/angular.js}"></script>
 <script th:src="@{/js/xml2json.js}"></script>
-
-<script th:src="@{/js/itapp.qrcode.js}"></script>
-<script th:src="@{/js/jquery.qrcode.min.js}"></script>
-
-
-
-
-
-
 <!-- 消息设置插件;-->
-<script type="text/javascript"
-	src="http://ifightcrime.github.io/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
 
-<title>程里人服务平台</title>
+<title>ShareArt</title>
 </head>
 <body>
 	<div class="container">
@@ -103,13 +78,13 @@
 									<!--<label class="sr-only" for="form-username">域账号</label>-->
 									<input type="text" name="form-username" placeholder="域账号..."
 										class="form-username form-control" id="form-username"
-										th:field="*{name}">
+										th:field="*{username}">
 								</div>
 								<div class="form-group">
 									<!--<label class="sr-only" for="form-password">密码</label>-->
 									<input type="password" name="form-password" placeholder="密码..."
 										class="form-password form-control" id="form-password"
-										th:field="*{pwd}">
+										th:field="*{password}">
 								</div>
 
 								<button type="submit" class="btn" id="submit">登录</button>

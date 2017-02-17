@@ -13,11 +13,13 @@ import com.example.bean.User;
 import com.example.commons.RemoteHttpRequest;
 import com.example.service.LoginService;
 import com.google.gson.Gson;
+import org.apache.commons.codec.binary.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.rmi.Remote;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,8 @@ public class LoginServiceImp implements LoginService{
     private static final Logger logger = LoggerFactory.getLogger(LoginServiceImp.class);
     @Autowired
     private RequestUserBean userBean;
-
+    @Autowired
+    private User user;
 //    ArrayList<TeacherBean> arrayList ;
 
     public LoginServiceImp() {
@@ -41,22 +44,22 @@ public class LoginServiceImp implements LoginService{
     @Override
     public void getName(User user) {
         logger.info("-----------getName");
+    }
 
-        String result = RemoteHttpRequest.httpGet("https://api.leancloud.cn/1.1/classes/test/57712af0165abd00548803ef");
+    @Override
+    public boolean isUser(User user) {
+        logger.info("----user index");
+//        测试账号和密码
+//        User user = new User("Tom","123456789");
+        String strjosn = JSON.toJSONString(user);
+
+        String result = RemoteHttpRequest.getHttpPostResponse("https://api.leancloud.cn/1.1/login",strjosn);
         JSONObject jsonObject = JSONObject.parseObject(result);
-        logger.info(result);
-        // 开始解析jsonArray数据;
-//        if(jsonObject.get("status").toString().equals("ok")) {
-//
-            JSONArray jsonArray = jsonObject.getJSONArray("results");
-        logger.info("----jsonArray"+jsonArray);
-//
-           List<TeacherBean> arrayList = JSON.parseArray(jsonArray.toJSONString(),TeacherBean.class);
-        logger.info("----arrayList");
-        for(int i=0;i<arrayList.size();i++) {
-            logger.info("----arrayList");
-            logger.info(arrayList.get(i).toString());
+        logger.info("result"+result);
+
+        if(!jsonObject.get("sessionToken").toString().equals("")) {
+            return true;
         }
-//        }
+        return false;
     }
 }

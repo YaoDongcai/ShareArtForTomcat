@@ -32,11 +32,7 @@ public class IndexServiceImp implements IndexService {
 //
         List<TeacherBean> arrayList = JSON.parseArray(jsonArray.toJSONString(),TeacherBean.class);
         logger.info("----arrayList");
-        for(int i=0;i<arrayList.size();i++) {
-            logger.info("----arrayList");
-            logger.info(arrayList.get(i).toString());
-        }
-        //gson 转换为TeacherBean；
+
         return arrayList;
     }
 }

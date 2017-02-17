@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by yaodongcai on 2017/1/7.
@@ -21,23 +22,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/login",name = "登陆模块")
 public class LoginController {
-    private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
     private LoginServiceImp loginService;
 
     @RequestMapping(value = "/")
     public String index(ModelMap map) {
-        logger.info("--------------index page");
+        LOGGER.info("--------------index page");
         map.addAttribute("user", new User());
         return "login-in";
     }
     @RequestMapping(value = "/success")
-    public String success(@ModelAttribute(value = "user") User user,ModelMap map) {
-        logger.info("--------------success page");
-        logger.info("-----------user:"+user.toString());
-        loginService.getName(user);
-        return "success";
+    public String success(@ModelAttribute(value = "user") User user,HttpServletRequest httpServletRequest) {
+        LOGGER.info("access success page");
+        LOGGER.info("-----------user:"+user.toString());
+        if(loginService.isUser(user)) {
+            // 设置session ;
+            HttpSession httpSession = httpServletRequest.getSession();
+            httpSession.setAttribute("user",user.getUsername());
+            return "redirect:/user/index";
+        }else{
+            return "redirect:/login/";
+        }
     }
 
 }

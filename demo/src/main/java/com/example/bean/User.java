@@ -8,40 +8,31 @@ import org.springframework.stereotype.Component;
 // 定义User 实体类
 @Component
 public class User {
-    private String name; // 用户名
-    private String pwd; //用户密码
-    private String region; //预留一个字段作为未来的移动端或者pc端的类型
+    private String username;
+    private String password;
 
-    public String getRegion() {
-        return region;
+    public String getUsername() {
+        return username;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getName() {
-        return name;
+    public User() {
+
+    }
+    public User(String username,String password) {
+        this.username = username;
+        this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", pwd='" + pwd + '\'' +
-                ", region='" + region + '\'' +
-                '}';
+
+    public String getPassword() {
+        return password;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPwd() {
-        return pwd;
-    }
-
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
