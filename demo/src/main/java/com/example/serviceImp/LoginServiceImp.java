@@ -3,10 +3,7 @@ package com.example.serviceImp;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVOSCloud;
-import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVUser;
+
 import com.example.bean.RequestUserBean;
 import com.example.bean.TeacherBean;
 import com.example.bean.User;

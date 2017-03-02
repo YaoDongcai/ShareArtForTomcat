@@ -34,6 +34,7 @@ public class LoginController {
     public String index(ModelMap map) {
         LOGGER.info("--------------index page");
         map.addAttribute("user", new User());
+        map.addAttribute("title","登陆界面");
         return "login-in";
     }
     @RequestMapping(value = "/success")

@@ -105,12 +105,7 @@
             <artifactId>commons-io</artifactId>
             <version>2.1</version>
         </dependency>
-        <!-- leancloud 官方包-->
-        <dependency>
-            <groupId>cn.leancloud</groupId>
-            <artifactId>java-sdk</artifactId>
-            <version>0.1.6</version>
-        </dependency>
+
 	</dependencies>
 
 	<build>
